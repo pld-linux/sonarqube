@@ -16,7 +16,7 @@ BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.546
 BuildRequires:	unzip
-Requires:	java-servlet-container
+Requires:	tomcat
 Requires:	jpackage-utils
 Obsoletes:	sonar < 4.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
