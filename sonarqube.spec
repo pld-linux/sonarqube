@@ -2,14 +2,14 @@
 # - build it from sources
 %include	/usr/lib/rpm/macros.java
 Summary:	Open platform to manage code quality
-Name:		sonar
+Name:		sonarqube
 Version:	1.6
 Release:	0.1
 License:	GPL v2
 Group:		Networking/Daemons/Java/Servlets
 Source0:	http://dist.sonar.codehaus.org/%{name}-%{version}.zip
 # Source0-md5:	accde4b27b491e63fdba3995759162f5
-Source1:	%{name}-context.xml
+Source1:	context.xml
 URL:		http://www.sonarqube.org/
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
