@@ -1,29 +1,30 @@
 # TODO
 # - build it from sources
 %include	/usr/lib/rpm/macros.java
-Summary:	A code quality management platform
+Summary:	Open platform to manage code quality
 Name:		sonar
 Version:	1.6
 Release:	0.1
 License:	GPL v2
 Group:		Networking/Daemons/Java/Servlets
-Source0:	http://dist.sonar.codehaus.org/sonar-1.6.zip
+Source0:	http://dist.sonar.codehaus.org/%{name}-%{version}.zip
 # Source0-md5:	accde4b27b491e63fdba3995759162f5
 Source1:	%{name}-context.xml
-URL:		http://sonar.codehaus.org/
+URL:		http://www.sonarqube.org/
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 BuildRequires:	unzip
 Requires:	java-servlet-container
 Requires:	jpackage-utils
+Obsoletes:	sonar
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-SONAR is a code quality management platform, dedicated to continuously analyze
-and measure technical quality, from the projects portfolio to the class
-method.
+SonarQube is an open source quality management platform, dedicated to
+continuously analyze and measure source code quality, from the
+portfolio to the method.
 
 %prep
 %setup -q
@@ -35,7 +36,7 @@ cd war
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir}/%{name},%{_datadir}/%{name},%{_sharedstatedir}/{%{name},tomcat/conf/Catalina/localhost}}
-install %SOURCE1 $RPM_BUILD_ROOT%{_sharedstatedir}/tomcat/conf/Catalina/localhost/%{name}.xml
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sharedstatedir}/tomcat/conf/Catalina/localhost/%{name}.xml
 cp -a war/build/sonar-web/* $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
