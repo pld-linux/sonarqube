@@ -1,6 +1,5 @@
 # TODO
 # - build it from sources
-%include	/usr/lib/rpm/macros.java
 Summary:	Open platform to manage code quality
 Name:		sonarqube
 # Stick to LTS version
